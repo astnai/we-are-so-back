@@ -1,27 +1,19 @@
-"use client"
-
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Button } from "@/components/ui/button";
-import { Copy } from "lucide-react";
 
 const BlueScreenGenerator: React.FC = () => {
   const [text, setText] = useState("we're so back");
-  const [isMobile, setIsMobile] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
     renderImage();
     window.addEventListener("keydown", handleKeyDown);
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("resize", checkMobile);
     };
   }, [text]);
 
@@ -112,18 +104,7 @@ const BlueScreenGenerator: React.FC = () => {
           />
         </div>
       </Card>
-      {isMobile ? (
-        <Button
-          onClick={copyImageToClipboard}
-          className="mt-4 flex items-center gap-2"
-        >
-          <Copy size={16} /> Copy Image
-        </Button>
-      ) : (
-        <p className="text-sm text-neutral-500 mt-4 italic">
-          ctrl + c for copy
-        </p>
-      )}
+      <p className="text-sm text-neutral-500 mt-4 italic">ctrl + c for copy</p>
     </div>
   );
 };
