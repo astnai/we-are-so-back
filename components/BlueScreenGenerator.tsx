@@ -93,7 +93,6 @@ const BlueScreenGenerator: React.FC = () => {
         <Textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Escribe tu texto aquí"
           className="w-full bg-white text-black placeholder-black resize-none font-serif rounded-2xl"
           style={{ maxHeight: "150px" }}
         />
