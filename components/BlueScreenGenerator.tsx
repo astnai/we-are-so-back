@@ -73,7 +73,7 @@ const BlueScreenGenerator: React.FC = () => {
         ]);
         toast({
           title: "Image copied!",
-          description: "The image has been saved to your clipboard as PNG.",
+          description: "The image has been saved to your clipboard.",
         });
       }
     } catch (err) {
@@ -105,7 +105,7 @@ const BlueScreenGenerator: React.FC = () => {
           />
         </div>
       </Card>
-      <p className="text-sm text-neutral-500 mt-4 italic">ctrl + c for save in png</p>
+      <p className="text-sm text-neutral-500 mt-4 italic">ctrl + c for copy</p>
     </div>
   );
 };
